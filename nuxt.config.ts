@@ -2,10 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  css: ["~/assets/css/main.css"],
-  imports: {
-    autoImport: true
+  typescript: {
+    typeCheck: true,
   },
+  css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
