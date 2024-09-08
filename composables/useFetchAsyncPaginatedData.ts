@@ -7,14 +7,12 @@ export const useFetchAsyncPaginatedData = async <Type>(
     ) => {
     const { data, error, status, refresh, execute } = await useAsyncData(`posts/${currentPage.value}`, async () => {
         const currPage = Math.random();
-        console.log(currentPage);
         const res = await $fetch.raw<Type[]>(dataUrl, {
             query: { "_limit": perPageLimit, "_page": currentPage.value },
             
         })
     
         const totalElements = Number(res.headers.get(headerCountFieldName));
-        console.log(currentPage.value);
         const totalPages = totalElements / perPageLimit;
     
         return {
